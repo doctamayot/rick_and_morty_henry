@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import Card from "./Card";
 
-export default function Cards({ characters }) {
+export default function Cards({ characters, onClose }) {
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       {characters.map((item) => (
@@ -13,7 +14,7 @@ export default function Cards({ characters }) {
           gender={item.gender}
           origin={item.origin.name}
           image={item.image}
-          onClose={() => window.alert("Emulamos que se cierra la card")}
+          onClose={onClose}
         />
       ))}
     </div>
