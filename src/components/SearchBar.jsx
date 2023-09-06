@@ -18,7 +18,7 @@ export default function SearchBar({
     e.preventDefault();
 
     if (e.target.firstChild.value === "") {
-      setError({ status: true, msg: "Debes escribir agun id" });
+      setError({ status: true, msg: "Debes escribir algun id" });
       return;
     }
 

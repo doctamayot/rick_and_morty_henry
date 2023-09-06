@@ -1,8 +1,12 @@
 import { useState } from "react";
-import "./App.css";
+import { Routes, Route } from "react-router-dom";
 import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav";
 import axios from "axios";
+import "./App.css";
+import About from "./components/About.jsx";
+import Detail from "./components/Detail.jsx";
+import Error404 from "./components/Error404.jsx";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -30,6 +34,10 @@ function App() {
         .catch(() => {
           setLoading(false);
           setError({ status: true, msg: "No existe personaje con ese id" });
+          setTimeout(() => {
+            setError({ status: false, msg: "No existe personaje con ese id" });
+          }, 3000);
+
           return;
         })
         .finally(() => {
@@ -62,7 +70,16 @@ function App() {
           <div className="barra_de_progreso"></div>
         </div>
       )}
-      <Cards characters={characters} onClose={onClose} />
+
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+        <Route path="/detail/:id" element={<Detail />} />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
     </div>
   );
 }

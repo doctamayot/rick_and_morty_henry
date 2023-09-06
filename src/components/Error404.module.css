@@ -1,0 +1,38 @@
+.error_container {
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    background-color: #f8f8f8;
+    width: 50%;
+    margin: 20px auto; /* Color de fondo personalizable */
+  }
+  
+  .error_content {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff; /* Color de fondo del contenido personalizable */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra personalizable */
+  }
+  
+  h1 {
+    font-size: 36px;
+    color: #333; /* Color del encabezado personalizable */
+  }
+  
+  p {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #666; /* Color del texto personalizable */
+  }
+  
+  .link {
+    text-decoration: none;
+    color: #007bff; /* Color del enlace personalizable */
+    font-weight: bold;
+    transition: color 0.2s;
+  }
+  
+  .link:hover {
+    color: #0056b3; /* Color del enlace al pasar el cursor personalizable */
+  }

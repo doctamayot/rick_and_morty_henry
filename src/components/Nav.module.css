@@ -18,4 +18,23 @@
   color: #333; /* Texto en un tono oscuro para contraste */
   }
 
+
+  .linkButton{
+    margin-left: 10px;
+  }
+
+  .container_nav{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .container_navlink {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 20px
+  }
+
   

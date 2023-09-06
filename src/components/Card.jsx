@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import { Link } from "react-router-dom";
 import styles from "./Card.module.css";
 export default function Card({
   id,
@@ -20,7 +21,9 @@ export default function Card({
         X
       </button>
       <img src={image} alt="irick" />
-      <h2 className={styles.name}>{name}</h2>
+      <Link to={`/detail/${id}`}>
+        <h2 className={styles.name}>{name}</h2>
+      </Link>
       <div className={styles.container_sub}>
         <div className={styles.container_skills}>
           <h2>Status:</h2>

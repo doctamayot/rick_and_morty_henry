@@ -1,0 +1,27 @@
+.container{
+    display:flex;
+    
+    color: white !important;
+    width: 70%;
+    margin: 20px auto;
+    padding:50px;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+  color: #fff; /* Color del texto en la tarjeta */
+  
+  border-radius: 8px; /* Bordes redondeados para la tarjeta */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    
+}
+.container_left > h1{
+    
+    background-color:#f5d45e;
+    color: rgb(66, 119, 251);
+}
+
+.imagen{
+    margin-left: 30px;
+}
+
+.container_left{
+    margin-top:50px;
+}
