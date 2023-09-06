@@ -7,6 +7,7 @@
     outline: none;
     transition: border-color 0.3s ease-in-out;
     margin-right: 20px;
+    width:400px
   }
   
   /* Estilo cuando el input está enfocado */
@@ -23,8 +24,8 @@
     text-align: center;
     text-decoration: none;
     background-color: #007bff; /* Color de fondo azul */
-    color: #fff; /* Texto en blanco */
-    border: none;
+    color: #fff; /* Te;xto en blanco */
+    border: 1px solid;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;

@@ -2,7 +2,12 @@ import { useState } from "react";
 import styles from "./SearchBar.module.css";
 
 /* eslint-disable react/prop-types */
-export default function SearchBar({ onSearch, characters }) {
+export default function SearchBar({
+  onSearch,
+  characters,
+  setError,
+  setLoading,
+}) {
   const [id, setId] = useState("");
 
   const handleChange = (e) => {
@@ -13,15 +18,16 @@ export default function SearchBar({ onSearch, characters }) {
     e.preventDefault();
 
     if (e.target.firstChild.value === "") {
-      alert("Debes escribir algo");
+      setError({ status: true, msg: "Debes escribir agun id" });
       return;
     }
 
     const idNumero = parseInt(id);
 
     if (characters.find((char) => char.id === idNumero)) {
-      alert("El personaje ya existe");
+      setError({ status: true, msg: "El personaje ya existe" });
       setId("");
+      setLoading(false);
       return;
     }
 
@@ -35,6 +41,7 @@ export default function SearchBar({ onSearch, characters }) {
         onChange={handleChange}
         value={id}
         className={styles.input_moderno}
+        placeholder="Ingrese el ID del personaje de Rick and Morty"
       />
       <button type="submit" className={styles.boton_agregar}>
         Agregar

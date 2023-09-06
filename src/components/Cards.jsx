@@ -3,7 +3,7 @@ import Card from "./Card";
 
 export default function Cards({ characters, onClose }) {
   const inverso = characters.slice().reverse();
-  console.log(inverso);
+
   return (
     <div
       style={{

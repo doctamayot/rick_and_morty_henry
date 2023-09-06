@@ -2,13 +2,13 @@
 import SearchBar from "./SearchBar";
 import styles from "./Nav.module.css";
 
-const Nav = ({ onSearch, characters }) => {
+const Nav = ({ onSearch, characters, setError, setLoading }) => {
   const handleClick = (event) => {
-    console.log(event.target.firstChild.value);
     const idNumero = parseInt(event.target.firstChild.value);
 
     if (characters.find((char) => char.id === idNumero)) {
-      alert("El personaje ya existe");
+      setError({ status: true, msg: "El personaje ya existe" });
+      setLoading(false);
       return;
     }
     const numeroRandom = Math.floor(Math.random() * 100) + 1;
@@ -19,7 +19,12 @@ const Nav = ({ onSearch, characters }) => {
       <button className={styles.boton_rojo} onClick={handleClick}>
         Random
       </button>
-      <SearchBar onSearch={onSearch} characters={characters} />
+      <SearchBar
+        onSearch={onSearch}
+        characters={characters}
+        setError={setError}
+        setLoading={setLoading}
+      />
     </div>
   );
 };

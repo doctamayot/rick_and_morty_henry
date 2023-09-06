@@ -1,5 +1,8 @@
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
+  min-height: 600px;
+  width: 100%;
+  height: auto;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -7,6 +10,27 @@
   border-radius: 5px; /* Bordes redondeados */
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* Sombra suave */
   font-family: 'Patrick Hand', cursive;
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/887/963/719/rick-and-morty-adult-swim-minimalism-wallpaper-preview.jpg'); /* Ruta relativa a la carpeta "assets" */
+  background-size: cover; /* Ajusta el tamaño de la imagen para que cubra todo el fondo */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed; /* Fija la imagen de fondo paras que no se desplace con el contenido
+}
+
+
+.error{
+  background-color: red;
+  color:white
+}
+
+.nohayper{
+  font-size: 30px;
+  color: #333;
+  background-color:#cfcfcf;
+  width: 60%;
+  margin: 20px auto;
+  border-radius: 10px;
+  padding: 10px
+  
 }
 
 .logo {
@@ -43,4 +67,36 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Estilo para el contenedor de la barra de progreso */
+.barra_de_progreso_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Ajusta la altura según tus necesidades */
+}
+
+.barra_de_progreso_container {
+  font-size: 30px;
+  color: #fff;
+  
+}
+
+/* Estilo para la barra de progreso */
+.barra_de_progreso {
+  border: 4px solid rgb(237, 229, 229); /* Borde gris transparente */
+  border-top: 4px solid #007bff; /* Borde superior azul */
+  border-radius: 50%; /* Círculo */
+  width: 60px; /* Diámetro del círculo */
+  height: 60px; /* Diámetro del círculo */
+  animation: spin 1s linear infinite; /* Animación de rotación */
+  text-align: center;
+ 
+}
+
+/* Estilo de animación cuando loading es true */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
