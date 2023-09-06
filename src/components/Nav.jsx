@@ -17,7 +17,7 @@ const Nav = ({ onSearch, characters, setError, setLoading }) => {
   return (
     <div>
       <button className={styles.boton_rojo} onClick={handleClick}>
-        Random
+        Agrega uno Random
       </button>
       <SearchBar
         onSearch={onSearch}
