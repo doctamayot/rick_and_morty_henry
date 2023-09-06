@@ -1,0 +1,19 @@
+.boton_rojo {
+    background-color: #ff4d4d; /* Rojo moderno */
+    color: white; /* Texto en blanco para resaltar */
+    padding: 10px 20px; /* Relleno adecuado para el botón */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados para un aspecto moderno */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 20px; /* Transición suave en el cambio de color */
+  }
+  
+  /* Cambia el color cuando el botón está enfocado o se pasa el ratón por encima */
+  .boton_rojo:hover,
+  .boton_rojo:focus {
+    background-color: #ff3333; /* Cambia el color a un tono más claro de rojo */
+  }
+
+  

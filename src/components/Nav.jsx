@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import SearchBar from "./SearchBar";
+import styles from "./Nav.module.css";
 
 const Nav = ({ onSearch, characters }) => {
   const handleClick = (event) => {
@@ -15,7 +16,9 @@ const Nav = ({ onSearch, characters }) => {
   };
   return (
     <div>
-      <button onClick={handleClick}>Random</button>
+      <button className={styles.boton_rojo} onClick={handleClick}>
+        Random
+      </button>
       <SearchBar onSearch={onSearch} characters={characters} />
     </div>
   );

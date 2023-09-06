@@ -16,7 +16,9 @@ export default function Card({
   };
   return (
     <div className={styles.container}>
-      <button onClick={onClick}>X</button>
+      <button onClick={onClick} style={{ color: "white" }}>
+        X
+      </button>
       <img src={image} alt="irick" />
       <h2 className={styles.name}>{name}</h2>
       <div className={styles.container_sub}>

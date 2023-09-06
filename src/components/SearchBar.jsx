@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./SearchBar.module.css";
 
 /* eslint-disable react/prop-types */
 export default function SearchBar({ onSearch, characters }) {
@@ -29,8 +30,15 @@ export default function SearchBar({ onSearch, characters }) {
   };
   return (
     <form onSubmit={onClick}>
-      <input type="search" onChange={handleChange} value={id} />
-      <button type="submit">Agregar</button>
+      <input
+        type="search"
+        onChange={handleChange}
+        value={id}
+        className={styles.input_moderno}
+      />
+      <button type="submit" className={styles.boton_agregar}>
+        Agregar
+      </button>
     </form>
   );
 }

@@ -2,9 +2,18 @@
 import Card from "./Card";
 
 export default function Cards({ characters, onClose }) {
+  const inverso = characters.slice().reverse();
+  console.log(inverso);
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      {characters.map((item) => (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        marginTop: "10px",
+        flexWrap: "wrap",
+      }}
+    >
+      {inverso.map((item) => (
         <Card
           key={item.id}
           id={item.id}

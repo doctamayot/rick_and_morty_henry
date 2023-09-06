@@ -1,0 +1,36 @@
+/* Estilo para el input moderno */
+.input_moderno {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out;
+    margin-right: 20px;
+  }
+  
+  /* Estilo cuando el input está enfocado */
+  .input_moderno:focus {
+    border-color: #007bff; /* Cambia el color del borde cuando está enfocado */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Añade una sombra sutile al estar enfocado */
+  }
+
+  .boton_agregar {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    background-color: #007bff; /* Color de fondo azul */
+    color: #fff; /* Texto en blanco */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Cambia el color de fondo cuando el botón se pasa el ratón por encima */
+  .boton_agregar:hover {
+    background-color: #0056b3; /* Cambia a un tono más oscuro de azul */
+  }

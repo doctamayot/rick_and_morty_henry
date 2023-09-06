@@ -31,6 +31,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Rick & Morty</h1>
       <Nav onSearch={onSearch} characters={characters}></Nav>
       <Cards characters={characters} onClose={onClose} />
     </div>
