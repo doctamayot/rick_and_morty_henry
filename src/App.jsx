@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Cards from "./components/Cards.jsx";
 import Nav from "./components/Nav";
 import axios from "axios";
@@ -7,11 +7,19 @@ import "./App.css";
 import About from "./components/About.jsx";
 import Detail from "./components/Detail.jsx";
 import Error404 from "./components/Error404.jsx";
+import Form from "./components/Form.jsx";
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [error, setError] = useState({ status: false, msg: "" });
   const [loading, setLoading] = useState(false);
+  const [access, setAccess] = useState(false);
+
+  const EMAIL = "doctamayot@hotmail.com";
+  const PASSWORD = "123456";
+
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const errores = <h4 className="error">{error.msg}</h4>;
 
@@ -51,18 +59,38 @@ function App() {
     setCharacters(res);
   };
 
+  const login = (userData) => {
+    if (userData.password === PASSWORD && userData.email === EMAIL) {
+      setAccess(true);
+      navigate("/home");
+    }
+    return "Usuario y/o Contraseña incorrectas";
+  };
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
+
   return (
     <div className="App">
       <h1 style={{ fontSize: "90px", color: "#fff" }}>Rick & Morty</h1>
-      <Nav
-        onSearch={onSearch}
-        characters={characters}
-        setError={setError}
-        setLoading={setLoading}
-      ></Nav>
-      {characters.length === 0 && (
-        <h3 className="nohayper">No hay personajes aun!</h3>
+      {pathname === "/" ? null : (
+        <div>
+          <Nav
+            onSearch={onSearch}
+            characters={characters}
+            setError={setError}
+            setLoading={setLoading}
+            setAccess={setAccess}
+          ></Nav>
+          <div>
+            {characters.length === 0 && (
+              <h3 className="nohayper">No hay personajes aun!</h3>
+            )}
+          </div>
+        </div>
       )}
+
       {error.status && errores}
       {loading && (
         <div className="barra_de_progreso_container">
@@ -72,6 +100,7 @@ function App() {
       )}
 
       <Routes>
+        <Route path="/" element={<Form login={login} />} />
         <Route path="/about" element={<About />} />
         <Route
           path="/home"

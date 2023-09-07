@@ -91,3 +91,7 @@ button:focus-visible {
   font-size:100px;
   margin-bottom:1px
 }
+
+.errores{
+  color: rgb(236, 39, 39);
+}

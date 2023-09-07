@@ -10,7 +10,7 @@
   border-radius: 5px; /* Bordes redondeados */
   box-shadow: 0 0 10px rgba(0, 123, 255, 0.3); /* Sombra suave */
   font-family: 'Patrick Hand', cursive;
-  background-image: url('https://c4.wallpaperflare.com/wallpaper/887/963/719/rick-and-morty-adult-swim-minimalism-wallpaper-preview.jpg'); /* Ruta relativa a la carpeta "assets" */
+  background-image: url('./assets/Fondo0.jpg'); /* Ruta relativa a la carpeta "assets" */
   background-size: cover; /* Ajusta el tamaño de la imagen para que cubra todo el fondo */
   background-repeat: no-repeat; /* Evita que la imagen se repita */
   background-attachment: fixed; /* Fija la imagen de fondo paras que no se desplace con el contenido*/
