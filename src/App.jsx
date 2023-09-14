@@ -8,12 +8,27 @@ import About from "./components/About.jsx";
 import Detail from "./components/Detail.jsx";
 import Error404 from "./components/Error404.jsx";
 import Form from "./components/Form.jsx";
+import Favorites from "./components/Favorites.jsx";
+import { useSelector, useDispatch } from "react-redux";
+import { removeFav } from "./redux/actions.js";
 
-function App() {
+export function App() {
   const [characters, setCharacters] = useState([]);
+  const [allCharact, setAllCharact] = useState([]);
   const [error, setError] = useState({ status: false, msg: "" });
   const [loading, setLoading] = useState(false);
   const [access, setAccess] = useState(false);
+  const myFavorites = useSelector((state) => state.myFavorites);
+  const allCharacters = useSelector((state) => state.allCharacters);
+  const [favorites, setFavorites] = useState([]);
+  const dispatch = useDispatch();
+
+  //console.log(allCharacters);
+  console.log(myFavorites);
+
+  useEffect(() => {
+    setFavorites(myFavorites);
+  }, [myFavorites]);
 
   const EMAIL = "doctamayot@hotmail.com";
   const PASSWORD = "123456";
@@ -51,12 +66,18 @@ function App() {
         .finally(() => {
           setLoading(false);
         });
-    }, 1500);
+    }, 500);
   };
 
   const onClose = (id) => {
     const res = characters.filter((char) => char.id !== id);
     setCharacters(res);
+    const res2 = myFavorites.filter((char) => char.id !== id);
+    setFavorites(res2);
+    dispatch(removeFav(id));
+    // const res3 = allCharacters.filter((char) => char.id !== id);
+
+    // dispatch(removeFav(id));
   };
 
   const login = (userData) => {
@@ -107,6 +128,10 @@ function App() {
           element={<Cards characters={characters} onClose={onClose} />}
         />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route
+          path="/favorites"
+          element={<Favorites myFavorites={favorites} onClose={onClose} />}
+        />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>

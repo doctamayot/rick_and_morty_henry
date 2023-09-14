@@ -29,6 +29,12 @@ const Nav = ({ onSearch, characters, setError, setLoading, setAccess }) => {
           >
             Home
           </NavLink>
+          <NavLink
+            to="/favorites"
+            className={({ isActive }) => (isActive ? "active" : "unactive")}
+          >
+            Favorites
+          </NavLink>
 
           <NavLink
             to="/about"

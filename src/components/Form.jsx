@@ -58,6 +58,7 @@ const Form = ({ login }) => {
             value={userData.password}
             className={styles.form_control}
             onChange={handleChange}
+            autoComplete="true"
           />
           <p className="errores">{errors.password && errors.password}</p>
           <p className="errores">{errorLogin}</p>
