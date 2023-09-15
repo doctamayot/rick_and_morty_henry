@@ -14,17 +14,12 @@ import { removeFav } from "./redux/actions.js";
 
 export function App() {
   const [characters, setCharacters] = useState([]);
-  const [allCharact, setAllCharact] = useState([]);
   const [error, setError] = useState({ status: false, msg: "" });
   const [loading, setLoading] = useState(false);
   const [access, setAccess] = useState(false);
   const myFavorites = useSelector((state) => state.myFavorites);
-  const allCharacters = useSelector((state) => state.allCharacters);
   const [favorites, setFavorites] = useState([]);
   const dispatch = useDispatch();
-
-  //console.log(allCharacters);
-  console.log(myFavorites);
 
   useEffect(() => {
     setFavorites(myFavorites);
@@ -75,9 +70,6 @@ export function App() {
     const res2 = myFavorites.filter((char) => char.id !== id);
     setFavorites(res2);
     dispatch(removeFav(id));
-    // const res3 = allCharacters.filter((char) => char.id !== id);
-
-    // dispatch(removeFav(id));
   };
 
   const login = (userData) => {

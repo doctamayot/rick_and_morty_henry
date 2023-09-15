@@ -9,7 +9,6 @@ import { useState } from "react";
 export function Favorites({ myFavorites, onClose }) {
   const [aux, setAux] = useState(false);
   const dispatch = useDispatch();
-  console.log(myFavorites);
 
   const handleOrder = (e) => {
     dispatch(orderCards(e.target.value));

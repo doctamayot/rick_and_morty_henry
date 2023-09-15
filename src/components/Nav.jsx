@@ -1,9 +1,10 @@
 /* eslint-disable react/prop-types */
 import SearchBar from "./SearchBar";
 import styles from "./Nav.module.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Nav = ({ onSearch, characters, setError, setLoading, setAccess }) => {
+  const { pathname } = useLocation();
   const handleClick = (event) => {
     const idNumero = parseInt(event.target.firstChild.value);
 
@@ -46,9 +47,11 @@ const Nav = ({ onSearch, characters, setError, setLoading, setAccess }) => {
             Logout
           </button>
         </div>
-        <button className={styles.boton_rojo} onClick={handleClick}>
-          Agrega uno Random
-        </button>
+        {pathname === "/favorites" ? null : (
+          <button className={styles.boton_rojo} onClick={handleClick}>
+            Agrega uno Random
+          </button>
+        )}
       </div>
       <SearchBar
         onSearch={onSearch}
