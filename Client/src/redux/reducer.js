@@ -16,12 +16,8 @@ export const rootReducer = (state = initialState, { type, payload }) => {
     case "REMOVE_FAV":
       return {
         ...state,
-        myFavorites: state.myFavorites.filter(
-          (per) => per.id !== Number(payload)
-        ),
-        allCharacters: state.allCharacters.filter(
-          (per) => per.id !== Number(payload)
-        ),
+        myFavorites: state.myFavorites.filter((per) => per.id !== payload),
+        allCharacters: state.allCharacters.filter((per) => per.id !== payload),
       };
     case "FILTER":
       // eslint-disable-next-line no-case-declarations

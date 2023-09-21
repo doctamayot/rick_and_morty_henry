@@ -13,7 +13,7 @@ const Nav = ({ onSearch, characters, setError, setLoading, setAccess }) => {
       setLoading(false);
       return;
     }
-    const numeroRandom = Math.floor(Math.random() * 5) + 1;
+    const numeroRandom = Math.floor(Math.random() * 826) + 1;
     onSearch(numeroRandom);
   };
 

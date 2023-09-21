@@ -9,7 +9,9 @@ import Detail from "./components/Detail.jsx";
 import Error404 from "./components/Error404.jsx";
 import Form from "./components/Form.jsx";
 import Favorites from "./components/Favorites.jsx";
+
 import { useSelector, useDispatch } from "react-redux";
+
 import { removeFav } from "./redux/actions.js";
 
 export function App() {
@@ -45,7 +47,9 @@ export function App() {
     }
     setTimeout(() => {
       axios(`http://localhost:3001/rickandmorty/character/${id}`)
+        //axios(`https://rickandmortyapi.com/api/character/${id}`)
         .then(({ data }) => {
+          console.log(data);
           setCharacters([...characters, data]);
           setError({ ...error, status: false });
         })
@@ -63,7 +67,6 @@ export function App() {
         });
     }, 500);
   };
-  console.log(characters);
 
   const onClose = (id) => {
     const res = characters.filter((char) => char.id !== id);
