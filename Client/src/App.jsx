@@ -27,8 +27,8 @@ export function App() {
     setFavorites(myFavorites);
   }, [myFavorites]);
 
-  const EMAIL = "doctamayot@hotmail.com";
-  const PASSWORD = "123456";
+  // const EMAIL = "doctamayot@hotmail.com";
+  // const PASSWORD = "123456";
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -49,8 +49,7 @@ export function App() {
       axios(`http://localhost:3001/rickandmorty/character/${id}`)
         //axios(`https://rickandmortyapi.com/api/character/${id}`)
         .then(({ data }) => {
-          console.log(data);
-          setCharacters([...characters, data]);
+          setCharacters([...characters, data.character]);
           setError({ ...error, status: false });
         })
         .catch(() => {
@@ -75,13 +74,16 @@ export function App() {
     setFavorites(res2);
     dispatch(removeFav(id));
   };
+  //console.log(characters);
 
   const login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate("/home");
-    }
-    return "Usuario y/o Contraseña incorrectas";
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access && navigate("/home");
+    });
   };
 
   useEffect(() => {

@@ -13,9 +13,9 @@ export default function Cards({ characters, onClose }) {
         flexWrap: "wrap",
       }}
     >
-      {inverso.map((item) => (
+      {inverso.map((item, index) => (
         <Card
-          key={item.id}
+          key={index}
           id={item.id}
           name={item.name}
           status={item.status}

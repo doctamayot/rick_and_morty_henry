@@ -1,24 +1,23 @@
-const http = require("http");
-const data = require("./utils/data");
-const { getCharById } = require("./controllers/getCharbyId");
+const express = require("express");
+const routes = require("./routes");
+const morgan = require("morgan");
 
 const PORT = 3001;
+const server = express();
 
-const server = http
-  .createServer((req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    const url = req.url;
-    const partesURL = req.url.split("/");
-    const id = partesURL.pop(); // Saca el ultimo de la url
+server.use(morgan("dev"));
 
-    if (url.includes("/rickandmorty/character")) {
-      return getCharById(res, id);
-    }
-
-    return res
-      .writeHead(404, { "Content-Type": "application/json" })
-      .end(JSON.stringify({ message: "Wrong Url" }));
-  })
-  .listen(PORT, "127.0.0.1", () =>
-    console.log(`Funcionando en puerto ${PORT}`)
+server.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
   );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
+server.use(express.json());
+server.use("/rickandmorty", routes);
+
+server.listen(PORT, () => console.log(`Funcionando en puerto ${PORT}`));
