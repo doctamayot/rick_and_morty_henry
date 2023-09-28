@@ -16,9 +16,10 @@ export function Favorites({ myFavorites, onClose }) {
   };
 
   const handleFilter = (e) => {
-    console.log(e.target.value);
+    //console.log(e.target.value);
     dispatch(filterCards(e.target.value));
   };
+
   return (
     <>
       <select onChange={handleOrder}>
@@ -39,7 +40,7 @@ export function Favorites({ myFavorites, onClose }) {
           flexWrap: "wrap",
         }}
       >
-        {myFavorites.map((item, index) => (
+        {myFavorites[0].map((item, index) => (
           <Card
             key={index}
             id={item.id}

@@ -87,7 +87,7 @@ export function App() {
   };
 
   useEffect(() => {
-    !access && navigate("/");
+    !access && navigate("/home");
   }, [access]);
 
   return (
