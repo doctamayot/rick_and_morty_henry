@@ -19,6 +19,7 @@ const Nav = ({ onSearch, characters, setError, setLoading, setAccess }) => {
 
   const logout = () => {
     setAccess(false);
+    localStorage.setItem("access", false);
   };
   return (
     <div>

@@ -1,14 +1,17 @@
 /* eslint-disable react/prop-types */
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "./Card";
 import { filterCards, orderCards } from "../redux/actions";
 import { useState } from "react";
 
 // eslint-disable-next-line react/prop-types
-export function Favorites({ myFavorites, onClose }) {
+export function Favorites({ onClose }) {
   const [aux, setAux] = useState(false);
   const dispatch = useDispatch();
+  const myFavorites = useSelector((state) => state.myFavorites);
+
+  console.log(myFavorites);
 
   const handleOrder = (e) => {
     dispatch(orderCards(e.target.value));
@@ -27,6 +30,7 @@ export function Favorites({ myFavorites, onClose }) {
         <option value="D">Descendente</option>
       </select>
       <select onChange={handleFilter}>
+        <option value="Todos">Todos</option>
         <option value="Male">Male</option>
         <option value="Female">Female</option>
         <option value="Genderless">Genderless</option>
@@ -40,7 +44,7 @@ export function Favorites({ myFavorites, onClose }) {
           flexWrap: "wrap",
         }}
       >
-        {myFavorites[0].map((item, index) => (
+        {myFavorites.map((item, index) => (
           <Card
             key={index}
             id={item.id}

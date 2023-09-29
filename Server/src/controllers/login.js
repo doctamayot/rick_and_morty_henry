@@ -1,5 +1,5 @@
 const users = require("../utils/user");
-//console.log(users);
+
 module.exports = (req, res) => {
   const { email, password } = req.query;
 
