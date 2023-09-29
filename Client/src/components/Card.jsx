@@ -51,7 +51,6 @@ export function Card({
       }
     });
   }, [myFavorites]);
-
   return (
     <div className={styles.container}>
       {isFav ? (

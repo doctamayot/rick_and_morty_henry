@@ -32,7 +32,6 @@ export function App() {
   // useEffect(() => {
   //   setFavorites(myFavorites);
   // }, [myFavorites]);
-  console.log(myFavorites);
 
   useEffect(() => {
     const accessNav = localStorage.getItem("access");
@@ -57,10 +56,6 @@ export function App() {
       return;
     }
     try {
-      // const { data } = await axios.post(
-      //   "http://localhost:3001/rickandmorty/character",
-      //   { id }
-      // );
       dispatch(addChar(id));
       setLoading(false);
       //setCharacters([...characters, data]);
@@ -72,11 +67,6 @@ export function App() {
   };
 
   const onClose = (id) => {
-    // let filtered = characters.filter((char) => char.id !== id);
-    // characters = filtered;
-    //setCharacters(res);
-    // const res2 = myFavorites.filter((char) => char.id !== id);
-    // setFavorites(res2);
     dispatch(removeChar(id));
     dispatch(removeFav(id));
   };

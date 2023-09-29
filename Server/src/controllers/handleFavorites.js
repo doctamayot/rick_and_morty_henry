@@ -1,5 +1,8 @@
 let myFavorites = [];
 
+const viewFav = (req, res) => {
+  res.status(200).json(myFavorites);
+};
 const postFav = (req, res) => {
   const personaje = req.body;
   myFavorites.push(personaje);
@@ -16,4 +19,5 @@ const deleteFav = (req, res) => {
 module.exports = {
   postFav,
   deleteFav,
+  viewFav,
 };

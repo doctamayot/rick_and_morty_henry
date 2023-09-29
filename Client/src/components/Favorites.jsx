@@ -11,8 +11,6 @@ export function Favorites({ onClose }) {
   const dispatch = useDispatch();
   const myFavorites = useSelector((state) => state.myFavorites);
 
-  console.log(myFavorites);
-
   const handleOrder = (e) => {
     dispatch(orderCards(e.target.value));
     setAux(!aux);

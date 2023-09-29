@@ -44,9 +44,19 @@ export const removeFav = (id) => {
 };
 
 export const filterCards = (gender) => {
-  return {
-    type: "FILTER",
-    payload: gender,
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(
+        "http://localhost:3001/rickandmorty/fav"
+      );
+      console.log(response.data);
+      return dispatch({
+        type: "FILTER",
+        payload: { gender: gender, data: response.data },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 };
 export const orderCards = (orden) => {

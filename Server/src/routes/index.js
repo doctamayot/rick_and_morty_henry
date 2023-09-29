@@ -3,7 +3,11 @@ const router = require("express").Router();
 
 //Controladores
 const { getCharById } = require("../controllers/getCharbyId");
-const { postFav, deleteFav } = require("../controllers/handleFavorites");
+const {
+  postFav,
+  deleteFav,
+  viewFav,
+} = require("../controllers/handleFavorites");
 const login = require("../controllers/login");
 const getChar = require("../controllers/getChar");
 
@@ -18,5 +22,7 @@ router.get("/login", login);
 router.post("/fav", postFav);
 //Borra personaje de favoritos
 router.delete("/fav/:id", deleteFav);
+//Traer los favoritos
+router.get("/fav", viewFav);
 
 module.exports = router;

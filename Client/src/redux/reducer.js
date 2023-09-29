@@ -36,15 +36,16 @@ export const rootReducer = (state = initialState, { type, payload }) => {
         myFavorites: payload,
       };
     case "FILTER":
+      state.myFavorites = payload.data;
       // eslint-disable-next-line no-case-declarations
       const filtered = state.myFavorites.filter(
-        (per) => per.gender === payload
+        (per) => per.gender === payload.gender
       );
 
-      if (payload === "Todos") {
+      if (payload.gender === "Todos") {
         return {
           ...state,
-          myFavorites: state.myFavorites,
+          myFavorites: payload.data,
         };
       }
       return {
