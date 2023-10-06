@@ -5,6 +5,8 @@ import { NavLink, useLocation } from "react-router-dom";
 
 const Nav = ({ onSearch, characters, setError, setLoading, setAccess }) => {
   const { pathname } = useLocation();
+  
+  
   const handleClick = (event) => {
     const idNumero = parseInt(event.target.firstChild.value);
 
